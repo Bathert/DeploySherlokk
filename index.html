@@ -1,0 +1,27 @@
+<!-- Unity 2020.2 -->
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Sherlock</title>
+  </head>
+  <body style="text-align: center; background-color: #023360;">     
+    <canvas id="unity-canvas" style="width: 1280px; height: 720px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #231F20"></canvas>
+    <script src="Build/WebGL uncompressed Sherlock 0.26 FHD.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        devicePixelRatio: 1, // Force rendering to standard DPI
+        dataUrl: "Build/WebGL uncompressed Sherlock 0.26 FHD.data",
+        frameworkUrl: "Build/WebGL uncompressed Sherlock 0.26 FHD.framework.js",
+        codeUrl: "Build/WebGL uncompressed Sherlock 0.26 FHD.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Sherlock",
+        productVersion: "0.25",
+      });
+    </script>
+  </body>
+</html>
+
+
