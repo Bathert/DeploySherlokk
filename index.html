@@ -1,27 +1,34 @@
-<!-- Unity 2020.2 -->
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Sherlock</title>
+    <title>Unity WebGL Player | Sherlock</title>
   </head>
-  <body style="text-align: center; background-color: #023360;">     
-    <canvas id="unity-canvas" style="width: 1280px; height: 720px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #231F20"></canvas>
-    <script src="Build/WebGL uncompressed Sherlock 0.35 HD.loader.js"></script>
+<style>* {margin: 0; padding: 0;}</style>
+  <body style="text-align: center; overflow: hidden">
+    <canvas id="unity-canvas" style="width: 100%; height: auto;  position: center; background: #231F20"></canvas>
+    <script src="Build/Sherlock.loader.js"></script>
     <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        devicePixelRatio: 1, // Force rendering to standard DPI
-        dataUrl: "Build/WebGL uncompressed Sherlock 0.35 HD.data",
-        frameworkUrl: "Build/WebGL uncompressed Sherlock 0.35 HD.framework.js",
-        codeUrl: "Build/WebGL uncompressed Sherlock 0.35 HD.wasm",
+        dataUrl: "Build/Sherlock.data",
+        frameworkUrl: "Build/Sherlock.framework.js",
+        codeUrl: "Build/Sherlock.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Sherlock",
         productVersion: "0.35",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
     </script>
   </body>
 </html>
-
-
